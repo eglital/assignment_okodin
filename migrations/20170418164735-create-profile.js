@@ -44,7 +44,7 @@ module.exports = {
       have_kids: {
         type: Sequelize.BOOLEAN
       },
-      petsid: {
+      petid: {
         type: Sequelize.INTEGER
       },
       occupationid: {

@@ -32,6 +32,24 @@ app.use((req, res, next) => {
 });
 
 // ----------------------------------------
+// Sessions/Cookies
+// ----------------------------------------
+var cookieSession = require("cookie-session");
+
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["asdf1234567890qwer"]
+  })
+);
+
+// ----------------------------------------
+// Flash Messages
+// ----------------------------------------
+var flash = require("express-flash-messages");
+app.use(flash());
+
+// ----------------------------------------
 // Public
 // ----------------------------------------
 app.use(express.static(`${__dirname}/public`));

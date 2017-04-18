@@ -11,6 +11,8 @@ var {
   Education,
   Pet
 } = models;
+var helpers = require("./../helpers");
+var h = helpers.registered;
 var sequelize = models.sequelize;
 
 // ----------------------------------------
@@ -88,7 +90,7 @@ router.post("/profile/new", (req, res) => {
     return (
       User.findOrCreate({
         defaults: userParams,
-        where: {email: userParams.email},
+        where: { email: userParams.email },
         transaction: t
       })
         // Array returned from findOrCreate
@@ -103,7 +105,7 @@ router.post("/profile/new", (req, res) => {
           // Find or create user profile
           return Profile.findOrCreate({
             defaults: profileParams,
-            where: {userId: user.id},
+            where: { userid: user.id },
             transaction: t
           });
         })
@@ -113,13 +115,13 @@ router.post("/profile/new", (req, res) => {
           profile = result;
 
           // Set profileId for associations
-          user.profileId = profile.id;
+          user.profileid = profile.id;
 
           // Update user with profileId
           return User.update(
-            {profileId: profile.id},
+            { profileid: profile.id },
             {
-              where: {id: user.id},
+              where: { id: user.id },
               limit: 1,
               transaction: t
             }
@@ -128,7 +130,7 @@ router.post("/profile/new", (req, res) => {
         // Redirect to profile show
         .then(() => {
           req.flash("success", "Profile created!");
-          res.redirect("profile/show");
+          res.redirect("/profile/show");
         })
         .catch(e => {
           if (e.errors) {
