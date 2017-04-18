@@ -42,7 +42,6 @@ app.use(express.static(`${__dirname}/public`));
 var morgan = require("morgan");
 app.use(morgan("tiny"));
 app.use((req, res, next) => {
-  console.log();
   ["query", "params", "body"].forEach(key => {
     if (req[key]) {
       var capKey = key[0].toUpperCase() + key.substr(1);
@@ -55,7 +54,8 @@ app.use((req, res, next) => {
 // ----------------------------------------
 // Routes
 // ----------------------------------------
-
+const indexRoutes = require("./routers/index");
+app.use("/", indexRoutes);
 // ----------------------------------------
 // Template Engine
 // ----------------------------------------
@@ -63,7 +63,7 @@ var expressHandlebars = require("express-handlebars");
 
 var hbs = expressHandlebars.create({
   partialsDir: "views/",
-  defaultLayout: "application"
+  defaultLayout: "main"
 });
 
 app.engine("handlebars", hbs.engine);
