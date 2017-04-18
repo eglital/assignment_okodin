@@ -36,3 +36,19 @@ $ sequelize db:migrate
 _--------------------------------------------------_
  Seeding Databases
 _--------------------------------------------------_
+
+sequelize seed:create --name users
+
+<!-- This will create and insert the objects to the db -->
+*model population method in the up function*
+return queryInterface.bulkInsert('Users', users);
+
+<!-- run the seeder -->
+$ sequelize db:seed:all
+
+<!-- To roll back the seeds -->
+$ sequelize db:seed:undo:all
+
+<!-- Use convenience command to undo migrations and reseed -->
+yarn run seed
+OR npm run seed
