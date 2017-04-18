@@ -31,93 +31,54 @@
     </div>
   </div>
 
-
-  <!-- User Profile Birthday -->
+  <!-- User Profile Image -->
   <div class="form-group">
-    <label>Birthday</label>
+    <label for="user_profile_image">Image URL</label>
+    <input type="text" class="form-control" id="user_profile_image" name="user[profile][image]">
   </div>
 
+<!-- User Profile Age -->
   <div class="form-group">
-    <label for="user_profile_birthday_year">Year</label>
-    <select name="user[profile][birthday][year]" id="user_profile_birthday_year" class="form-control">
-      <option value="2017">2017</option>
-      <option value="2016">2016</option>
-      <option value="2015">2015</option>
+    <label for="user_profile_age">Age</label>
+    <input type="text" class="form-control" id="user_profile_age" name="user[profile][age]">
+  </div>
+
+<!-- User Profile Location -->
+  <div class="form-group">
+    <label for="user_profile_location">Location</label>
+    <select name="user[profile][location]" id="user_profile_location" class="form-control">
+      {{#each locations as |location| }}
+        <option value="{{ location.id }}">{{ location.city }}, distance: {{ location.distance }}</option>
+      {{/each }}
     </select>
   </div>
 
-  <div class="form-group">
-    <label for="user_profile_birthday_month">Month</label>
-    <select name="user[profile][birthday][month]" id="user_profile_birthday_month" class="form-control">
-      <option value="1">January</option>
-      <option value="2">February</option>
-      <option value="3">March</option>
-      <option value="4">April</option>
-      <option value="5">May</option>
-      <option value="6">June</option>
-      <option value="7">July</option>
-      <option value="8">August</option>
-      <option value="9">September</option>
-      <option value="10">October</option>
-      <option value="11">November</option>
-      <option value="12">December</option>
+<!-- User Profile Marital Status -->
+    <div class="form-group">
+    <label for="user_profile_maritalStatus">Marital Status</label>
+    <select name="user[profile][maritalStatus]" id="user_profile_maritalStatus" class="form-control">
+      {{#each maritalStatuses as |maritalStatus| }}
+        <option value="{{ maritalStatus.id }}">{{ maritalStatus.status }}</option>
+      {{/each }}
     </select>
   </div>
 
-  <div class="form-group">
-    <label for="user_profile_birthday_day">Day</label>
-    <select id="user_profile_birthday_day" name="user[profile][birthday][day]" class="form-control">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-      <option value="20">20</option>
-      <option value="21">21</option>
-      <option value="22">22</option>
-      <option value="23">23</option>
-      <option value="24">24</option>
-      <option value="25">25</option>
-      <option value="26">26</option>
-      <option value="27">27</option>
-      <option value="28">28</option>
-      <option value="29">29</option>
-      <option value="30">30</option>
-      <option value="31">31</option>
+  <!-- User Profile Occupation-->
+    <div class="form-group">
+    <label for="user_profile_occupation">Occupation</label>
+    <select name="user[profile][occupation]" id="user_profile_occupation" class="form-control">
+      {{#each occupations as |occupation| }}
+        <option value="{{ occupation.id }}">{{ occupation.name }}</option>
+      {{/each }}
     </select>
   </div>
 
-
-  <!-- User Profile Address -->
-  <div class="form-group">
-    <label for="user_profile_address_street">Street Address</label>
-    <input type="text" class="form-control" id="user_profile_address_street" name="user[profile][address][street]" value="1234 Street Rd">
-  </div>
-
-  <div class="form-group">
-    <label for="user_profile_address_city">City</label>
-    <input type="text" class="form-control" id="user_profile_address_city" name="user[profile][address][city]" value="Land of Oz">
-  </div>
-
-  <div class="form-group">
-    <label for="user_profile_address_state">State</label>
-    <select name="user[profile][address][state_id]" id="user_profile_address_state" class="form-control">
-      {{#each states as |state| }}
-        <option value="{{ state.id }}">{{ state.name }}</option>
+  <!-- User Profile Pet-->
+    <div class="form-group">
+    <label for="user_profile_pet">pet</label>
+    <select name="user[profile][pet]" id="user_profile_pet" class="form-control">
+      {{#each pets as |pet| }}
+        <option value="{{ pet.id }}">{{ pet.species }}</option>
       {{/each }}
     </select>
   </div>

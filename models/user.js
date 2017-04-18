@@ -5,14 +5,14 @@ module.exports = function(sequelize, DataTypes) {
     {
       username: DataTypes.STRING,
       email: DataTypes.STRING,
-      profileId: DataTypes.INTEGER
+      profileid: DataTypes.INTEGER
     },
     {
       classMethods: {
         associate: function(models) {
           // associations can be defined here
           User.hasOne(models.Profile, {
-            foreignKey: "userId"
+            foreignKey: "userid"
           });
         }
       }

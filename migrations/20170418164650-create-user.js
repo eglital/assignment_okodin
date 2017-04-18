@@ -14,7 +14,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      profileId: {
+      profileid: {
         type: Sequelize.INTEGER
       },
       createdAt: {

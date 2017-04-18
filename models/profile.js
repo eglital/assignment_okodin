@@ -16,14 +16,15 @@ module.exports = function(sequelize, DataTypes) {
       body_typeid: DataTypes.INTEGER,
       have_kids: DataTypes.BOOLEAN,
       petsid: DataTypes.INTEGER,
-      educationid: DataTypes.INTEGER
+      educationid: DataTypes.INTEGER,
+      userid: DataTypes.INTEGER
     },
     {
       classMethods: {
         associate: function(models) {
           // associations can be defined here
           Profile.hasOne(models.User, {
-            foreignKey: "profileId"
+            foreignKey: "profileid"
           });
           Profile.belongsTo(models.Location, {
             foreignKey: "locationid"
