@@ -22,6 +22,12 @@ module.exports = function(sequelize, DataTypes) {
       classMethods: {
         associate: function(models) {
           // associations can be defined here
+          Profile.hasOne(models.User, {
+            foreignKey: "profileId"
+          });
+          Profile.belongsTo(models.Location, {
+            foreignKey: "locationid"
+          });
         }
       }
     }

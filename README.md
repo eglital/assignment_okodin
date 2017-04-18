@@ -13,7 +13,7 @@ $ createdb demo_exploring_sequelize_development
 $ createdb demo_exploring_sequelize_test
 
 <!-- //adding models -->
-sequelize model:create --name User --attributes "fname:string lname:string username:string email:string"
+sequelize model:create --name User --attributes "username:string email:string profileId:int"
 
 <!-- //timestamps modification//in model files -->
 createdAt: {
