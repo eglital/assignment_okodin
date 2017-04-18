@@ -17,10 +17,6 @@ type: STRING
 Occupation
 name: STRING
 
-Occupation-Profile JOIN
-occupationId: INT
-profileId: INT
-
 Pet:
 species: STRING
 
@@ -49,14 +45,76 @@ sequelize model:create --name Profile --attributes "image:string age:int locatio
 
 
 
-INSERT INTO Location
-VALUES (500, "Agartha")
+INSERT INTO "Locations" (distance, city)
+VALUES (500, 'Agartha');
 
-INSERT INTO Location
-VALUES (400, "Alfheim")
+INSERT INTO "Locations" (distance, city)
+VALUES (400, 'Alfheim');
 
-INSERT INTO Location
-VALUES (300, "Annwn")
+INSERT INTO "Locations" (distance, city)
+VALUES (300, 'Annwn');
 
-INSERT INTO Location
-VALUES (200, "Asgard")
+INSERT INTO "Locations" (distance, city)
+VALUES (200, 'Asgard');
+
+
+INSERT INTO "MaritalStatuses" (status)
+VALUES ('single');
+
+INSERT INTO "MaritalStatuses" (status)
+VALUES ('married');
+
+INSERT INTO "MaritalStatuses" (status)
+VALUES ('divorced');
+
+
+INSERT INTO "Occupations" (name)
+VALUES ('Wrestler');
+
+
+INSERT INTO "Occupations" (name)
+VALUES ('God of Thunder');
+
+
+INSERT INTO "Occupations" (name)
+VALUES ('Pet Detective');
+
+
+INSERT INTO "Occupations" (name)
+VALUES ('Student');
+
+
+INSERT INTO "BodyTypes" (type)
+VALUES ('sheep herder');
+
+INSERT INTO "BodyTypes" (type)
+VALUES ('blacksmith');
+
+INSERT INTO "BodyTypes" (type)
+VALUES ('built like a god');
+
+
+INSERT INTO "Pets" (species)
+VALUES ('sheep');
+
+INSERT INTO "Pets" (species)
+VALUES ('dog');
+
+INSERT INTO "Pets" (species)
+VALUES ('cow');
+
+INSERT INTO "Pets" (species)
+VALUES ('pig');
+
+
+INSERT INTO "Education" (level)
+VALUES ('preschool');
+
+INSERT INTO "Education" (level)
+VALUES ('viking middle school');
+
+INSERT INTO "Education" (level)
+VALUES ('viking school');
+
+INSERT INTO "Education" (level)
+VALUES ('thunder god school');
