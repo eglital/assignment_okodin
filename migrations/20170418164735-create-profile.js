@@ -12,10 +12,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       age: {
-        type: Sequelize.INT
+        type: Sequelize.INTEGER
       },
       locationid: {
-        type: Sequelize.INT
+        type: Sequelize.INTEGER
       },
       about: {
         type: Sequelize.TEXT
@@ -33,22 +33,22 @@ module.exports = {
         type: Sequelize.STRING
       },
       maritalid: {
-        type: Sequelize.INT
+        type: Sequelize.INTEGER
       },
       height: {
         type: Sequelize.STRING
       },
       body_typeid: {
-        type: Sequelize.INT
+        type: Sequelize.INTEGER
       },
       have_kids: {
         type: Sequelize.BOOLEAN
       },
       petsid: {
-        type: Sequelize.INT
+        type: Sequelize.INTEGER
       },
       educationid: {
-        type: Sequelize.INT
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

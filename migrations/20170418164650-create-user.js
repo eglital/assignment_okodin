@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       profileId: {
-        type: Sequelize.INT
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

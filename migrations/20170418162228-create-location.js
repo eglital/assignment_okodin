@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       distance: {
-        type: Sequelize.INT
+        type: Sequelize.INTEGER
       },
       city: {
         type: Sequelize.STRING

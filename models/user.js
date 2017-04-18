@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     {
       username: DataTypes.STRING,
       email: DataTypes.STRING,
-      profileId: DataTypes.INT
+      profileId: DataTypes.INTEGER
     },
     {
       classMethods: {

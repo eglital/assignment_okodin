@@ -4,19 +4,19 @@ module.exports = function(sequelize, DataTypes) {
     "Profile",
     {
       image: DataTypes.STRING,
-      age: DataTypes.INT,
-      locationid: DataTypes.INT,
+      age: DataTypes.INTEGER,
+      locationid: DataTypes.INTEGER,
       about: DataTypes.TEXT,
       talents: DataTypes.STRING,
       favorite_things: DataTypes.STRING,
       why_message: DataTypes.TEXT,
       gender: DataTypes.STRING,
-      maritalid: DataTypes.INT,
+      maritalid: DataTypes.INTEGER,
       height: DataTypes.STRING,
-      body_typeid: DataTypes.INT,
+      body_typeid: DataTypes.INTEGER,
       have_kids: DataTypes.BOOLEAN,
-      petsid: DataTypes.INT,
-      educationid: DataTypes.INT
+      petsid: DataTypes.INTEGER,
+      educationid: DataTypes.INTEGER
     },
     {
       classMethods: {
@@ -27,6 +27,18 @@ module.exports = function(sequelize, DataTypes) {
           });
           Profile.belongsTo(models.Location, {
             foreignKey: "locationid"
+          });
+          Profile.belongsTo(models.MaritalStatus, {
+            foreignKey: "maritalid"
+          });
+          Profile.belongsTo(models.BodyType, {
+            foreignKey: "body_typeid"
+          });
+          Profile.belongsTo(models.Pet, {
+            foreignKey: "petsid"
+          });
+          Profile.belongsTo(models.Education, {
+            foreignKey: "educationid"
           });
         }
       }

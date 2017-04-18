@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Location = sequelize.define(
     "Location",
     {
-      distance: DataTypes.INT,
+      distance: DataTypes.INTEGER,
       city: DataTypes.STRING
     },
     {

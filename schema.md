@@ -43,3 +43,20 @@ petsId: INT
 educationId: INT
 
 sequelize model:create --name Profile --attributes "image:string age:int locationid:int about:text talents:string favorite_things:string why_message:text gender:string maritalid:int height:string body_typeid:int have_kids:boolean petsid:int educationid:int"
+
+//////////////////////////////////////////
+
+
+
+
+INSERT INTO Location
+VALUES (500, "Agartha")
+
+INSERT INTO Location
+VALUES (400, "Alfheim")
+
+INSERT INTO Location
+VALUES (300, "Annwn")
+
+INSERT INTO Location
+VALUES (200, "Asgard")
