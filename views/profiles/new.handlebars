@@ -4,7 +4,7 @@
 </header>
 
 
-<form action="/profiles/new" method="post">
+<form action="/profile/new" method="post">
 
   <!-- User -->
   <div class="form-group">
@@ -43,6 +43,16 @@
     <input type="text" class="form-control" id="user_profile_age" name="user[profile][age]">
   </div>
 
+  <div class="form-group">
+    <label for="user_profile_height">Height</label>
+    <select id="user_profile_height" name="user[profile][height]" class="form-control">
+      <option value="Gnome">Gnome</option>
+      <option value="Dwarf">Dwarf</option>
+      <option value="Neohominid">Neohominid</option>
+      <option value="Blacksmith">Blacksmith</option>
+      <option value="Son of Odin">Son of Odin</option>
+    </select>
+  </div>
 <!-- User Profile Location -->
   <div class="form-group">
     <label for="user_profile_location">Location</label>
@@ -54,7 +64,7 @@
   </div>
 
 <!-- User Profile Marital Status -->
-    <div class="form-group">
+  <div class="form-group">
     <label for="user_profile_maritalStatus">Marital Status</label>
     <select name="user[profile][maritalStatus]" id="user_profile_maritalStatus" class="form-control">
       {{#each maritalStatuses as |maritalStatus| }}
@@ -63,8 +73,16 @@
     </select>
   </div>
 
+  <div class="form-group">
+    <label for="user_profile_education">Education</label>
+    <select name="user[profile][education]" id="user_profile_education" class="form-control">
+      {{#each educations as |education| }}
+        <option value="{{ education.id }}">{{ education.level }}</option>
+      {{/each }}
+    </select>
+  </div>
   <!-- User Profile Occupation-->
-    <div class="form-group">
+  <div class="form-group">
     <label for="user_profile_occupation">Occupation</label>
     <select name="user[profile][occupation]" id="user_profile_occupation" class="form-control">
       {{#each occupations as |occupation| }}
@@ -74,7 +92,7 @@
   </div>
 
   <!-- User Profile Pet-->
-    <div class="form-group">
+  <div class="form-group">
     <label for="user_profile_pet">pet</label>
     <select name="user[profile][pet]" id="user_profile_pet" class="form-control">
       {{#each pets as |pet| }}
@@ -83,55 +101,29 @@
     </select>
   </div>
 
-
-  <!-- Job Application -->
   <div class="form-group">
-    <label for="job_application_desired_position">Desired Position</label>
-    <input type="text" id="job_application_desired_position" name="job_application[desired_position]" class="form-control" value="Storage Room B">
+    <label for="user_profile_talents">Talents</label>
+    <input type="text" class="form-control" id="user_profile_talents" name="user[profile][talents]">
   </div>
 
   <div class="form-group">
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" id="job_application_currently_employed" name="job_application[currently_employed]" value="true" checked="checked"> Currently Employed
-      </label>
-    </div>
-  </div>
-
-
-  <!-- User Education -->
-  <div class="form-group">
-    <label for="user_educations_high_school_name">High School</label>
-    <input type="text" id="user_educations_high_school_name" name="user[educations][0][name]" class="form-control" value="Ridgemont High">
-    <input type="hidden" name="user[educations][0][type]" value="highschool">
+    <label for="user_profile_favorite_things">Favorite Things</label>
+    <input type="text" class="form-control" id="user_profile_favorite_things" name="user[profile][favorite_things]">
   </div>
 
   <div class="form-group">
-    <label for="user_educations_college_name">College</label>
-    <input type="text" id="user_educations_college_name" name="user[educations][1][name]" class="form-control" value="Harrison University">
-    <input type="hidden" name="user[educations][1][type]" value="college">
-  </div>
-
-
-  <!-- User Skills -->
-  <div class="form-group">
-    <label for="user_skills_1">Skills</label>
-    <input type="text" id="user_skills_1" name="user[skills][]" class="form-control" value="JavaScript">
+    <label for="user_profile_about">About</label>
+    <textarea class="form-control" id="user_profile_about" name="user[profile][about]" rows="3"></textarea>
   </div>
 
   <div class="form-group">
-    <label for="user_skills_2">Skills</label>
-    <input type="text" id="user_skills_2" name="user[skills][]" class="form-control" value="HTML">
+    <label for="user_profile_why_message">Why Should You Message Me?</label>
+    <textarea class="form-control" id="user_profile_why_message" name="user[profile][why_message]" rows="3"></textarea>
   </div>
 
-  <div class="form-group">
-    <label for="user_skills_3">Skills</label>
-    <input type="text" id="user_skills_3" name="user[skills][]" class="form-control" value="CSS">
-  </div>
 
-  
+
   <div class="form-group">
     <input type="submit" class="btn btn-primary">
   </div>
 </form>
-
