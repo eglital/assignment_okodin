@@ -5,7 +5,7 @@ var app = express();
 // Body Parser
 // ----------------------------------------
 var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // ----------------------------------------
 // Method Override
@@ -54,14 +54,16 @@ app.use((req, res, next) => {
 // ----------------------------------------
 // Routes
 // ----------------------------------------
-const indexRoutes = require("./routers/index");
-app.use("/", indexRoutes);
+const profileRoutes = require("./routers/profile");
+app.use("/", profileRoutes);
 // ----------------------------------------
 // Template Engine
 // ----------------------------------------
 var expressHandlebars = require("express-handlebars");
+var helpers = require("./helpers");
 
 var hbs = expressHandlebars.create({
+  helpers: helpers.registered,
   partialsDir: "views/",
   defaultLayout: "main"
 });
