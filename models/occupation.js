@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       classMethods: {
         associate: function(models) {
           Occupation.hasMany(models.Profile, {
-            foreignKey: "occupatioinid"
+            foreignKey: "occupationid"
           });
         }
       }

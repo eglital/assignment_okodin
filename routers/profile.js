@@ -73,7 +73,12 @@ router.post("/profile/new", (req, res) => {
     about: req.body.user.profile.about,
     talents: req.body.user.profile.talents,
     favorite_things: req.body.user.profile.favorite_things,
-    height: req.body.user.profile.height
+    height: req.body.user.profile.height,
+    locationid: req.body.user.profile.locationid,
+    maritalid: req.body.user.profile.maritalid,
+    body_typeid: req.body.user.profile.body_typeid,
+    educationid: req.body.user.profile.educationid,
+    petid: req.body.user.profile.petid
   };
 
   // Begin transaction
@@ -83,7 +88,7 @@ router.post("/profile/new", (req, res) => {
     return (
       User.findOrCreate({
         defaults: userParams,
-        where: { email: userParams.email },
+        where: {email: userParams.email},
         transaction: t
       })
         // Array returned from findOrCreate
@@ -98,7 +103,7 @@ router.post("/profile/new", (req, res) => {
           // Find or create user profile
           return Profile.findOrCreate({
             defaults: profileParams,
-            where: { userId: user.id },
+            where: {userId: user.id},
             transaction: t
           });
         })
@@ -112,86 +117,23 @@ router.post("/profile/new", (req, res) => {
 
           // Update user with profileId
           return User.update(
-            { profileId: profile.id },
+            {profileId: profile.id},
             {
-              where: { id: user.id },
+              where: {id: user.id},
               limit: 1,
               transaction: t
             }
           );
         })
+        // Redirect to profile show
         .then(() => {
-          // Set address profileId
-          addressParams.profileId = profile.id;
-
-          // Find or create address
-          return Address.findOrCreate({
-            defaults: addressParams,
-            where: { profileId: profile.id },
-            transaction: t
-          });
-        })
-        // Array returned so spread
-        .spread(result => {
-          // Set address
-          address = result;
-
-          return Profile.update(
-            { addressId: address.id },
-            {
-              where: { id: profile.id },
-              limit: 1,
-              transaction: t
-            }
-          );
-        })
-        .then(() => {
-          // Find or create user educations
-          var promises = educationsParams.map(ep => {
-            return Education.findOrCreate({
-              defaults: ep,
-              where: { name: ep.name, userId: ep.userId },
-              transaction: t
-            });
-          });
-          return Promise.all(promises);
-        })
-        // Manually spread nested arrays
-        // and save into variable
-        .then(result => {
-          return (educations = result.map(r => r[0]));
-        })
-        .then(() => {
-          // Find or create skills
-          var promises = skillsParams.map(sp => {
-            return Skill.findOrCreate({
-              defaults: sp,
-              where: { name: sp.name, userId: sp.userId },
-              transaction: t
-            });
-          });
-          return Promise.all(promises);
-        })
-        // Manually spread nested arrays
-        .then(result => {
-          return (skills = result.map(r => r[0]));
-        })
-        // Create new job application
-        .then(() => {
-          return JobApplication.create(jobApplicationParams, {
-            transaction: t
-          });
-        })
-        // Redirect to job application
-        .then(result => {
-          req.flash("success", "Job Application created!");
-          jobApplication = result;
-          res.redirect(h.jobApplicationPath(jobApplication.id));
+          req.flash("success", "Profile created!");
+          res.redirect("profile/show");
         })
         .catch(e => {
           if (e.errors) {
             e.errors.forEach(err => req.flash("error", err.message));
-            res.render("job_applications/new");
+            res.render("profile/new");
           } else {
             res.status(500).send(e.stack);
           }

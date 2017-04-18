@@ -47,6 +47,9 @@ module.exports = {
       petsid: {
         type: Sequelize.INTEGER
       },
+      occupationid: {
+        type: Sequelize.INTEGER
+      },
       educationid: {
         type: Sequelize.INTEGER
       },

@@ -15,7 +15,8 @@ module.exports = function(sequelize, DataTypes) {
       height: DataTypes.STRING,
       body_typeid: DataTypes.INTEGER,
       have_kids: DataTypes.BOOLEAN,
-      petsid: DataTypes.INTEGER,
+      petid: DataTypes.INTEGER,
+      occupationid: DataTypes.INTEGER,
       educationid: DataTypes.INTEGER,
       userid: DataTypes.INTEGER
     },
@@ -36,10 +37,13 @@ module.exports = function(sequelize, DataTypes) {
             foreignKey: "body_typeid"
           });
           Profile.belongsTo(models.Pet, {
-            foreignKey: "petsid"
+            foreignKey: "petid"
           });
           Profile.belongsTo(models.Education, {
             foreignKey: "educationid"
+          });
+          Profile.belongsTo(models.Occupation, {
+            foreignKey: "occupationid"
           });
         }
       }

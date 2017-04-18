@@ -53,10 +53,20 @@
       <option value="Son of Odin">Son of Odin</option>
     </select>
   </div>
+
+  <div class="form-group">
+    <label for="user_profile_body_type">Body Type</label>
+    <select name="user[profile][body_typeid]" id="user_profile_body_type" class="form-control">
+      {{#each bodyTypes as |type| }}
+        <option value="{{ type.id}}">{{ type.type }}</option>
+      {{/each }}
+    </select>
+  </div>
+
 <!-- User Profile Location -->
   <div class="form-group">
     <label for="user_profile_location">Location</label>
-    <select name="user[profile][location]" id="user_profile_location" class="form-control">
+    <select name="user[profile][locationid]" id="user_profile_location" class="form-control">
       {{#each locations as |location| }}
         <option value="{{ location.id }}">{{ location.city }}, distance: {{ location.distance }}</option>
       {{/each }}
@@ -66,7 +76,7 @@
 <!-- User Profile Marital Status -->
   <div class="form-group">
     <label for="user_profile_maritalStatus">Marital Status</label>
-    <select name="user[profile][maritalStatus]" id="user_profile_maritalStatus" class="form-control">
+    <select name="user[profile][maritalid]" id="user_profile_maritalStatus" class="form-control">
       {{#each maritalStatuses as |maritalStatus| }}
         <option value="{{ maritalStatus.id }}">{{ maritalStatus.status }}</option>
       {{/each }}
@@ -75,7 +85,7 @@
 
   <div class="form-group">
     <label for="user_profile_education">Education</label>
-    <select name="user[profile][education]" id="user_profile_education" class="form-control">
+    <select name="user[profile][educationid]" id="user_profile_education" class="form-control">
       {{#each educations as |education| }}
         <option value="{{ education.id }}">{{ education.level }}</option>
       {{/each }}
@@ -84,7 +94,7 @@
   <!-- User Profile Occupation-->
   <div class="form-group">
     <label for="user_profile_occupation">Occupation</label>
-    <select name="user[profile][occupation]" id="user_profile_occupation" class="form-control">
+    <select name="user[profile][occupationid]" id="user_profile_occupation" class="form-control">
       {{#each occupations as |occupation| }}
         <option value="{{ occupation.id }}">{{ occupation.name }}</option>
       {{/each }}
@@ -94,7 +104,7 @@
   <!-- User Profile Pet-->
   <div class="form-group">
     <label for="user_profile_pet">Pet</label>
-    <select name="user[profile][pet]" id="user_profile_pet" class="form-control">
+    <select name="user[profile][petid]" id="user_profile_pet" class="form-control">
       {{#each pets as |pet| }}
         <option value="{{ pet.id }}">{{ pet.species }}</option>
       {{/each }}
